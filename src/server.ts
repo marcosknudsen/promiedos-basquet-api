@@ -12,8 +12,6 @@ app.use(express.json());
 
 app.use("/api/log", logRoutes);
 
-
-
 app.use("/", (req, res) => {res.send("API is running...")});
 
 export default app;

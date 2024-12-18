@@ -37,38 +37,4 @@ export class LogController {
       console.log(error);
     }
   };
-
-  static updateLog = async (req: Request, res: Response) => {
-    const { id } = req.params;
-    try {
-      const log = await Log.findByIdAndUpdate(id, req.body);
-
-      if (!log) {
-        const error = new Error("Log no encontrado");
-        res.status(404).json({ error: error.message });
-      }
-
-      await log.save()
-      res.send("Log Actualizado");
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  static deleteLog = async (req: Request, res: Response) => {
-    const { id } = req.params;
-    try {
-      const log = await Log.findById(id);
-
-      if (!log) {
-        const error = new Error("Log no encontrado");
-        res.status(404).json({ error: error.message });
-      }
-
-      await log.deleteOne();
-      res.send("Log Eliminado");
-    } catch (error) {
-      console.log(error);
-    }
-  };
 }

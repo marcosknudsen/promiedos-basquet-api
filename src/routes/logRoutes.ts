@@ -20,15 +20,4 @@ router.post(
   LogController.create
 );
 
-router.put(
-  "/:id",
-  body("projectName").notEmpty().withMessage("Project name is required"),
-  body("clientName").notEmpty().withMessage("Client name is required"),
-  body("description").notEmpty().withMessage("Description is required"),
-  handleInputErrors,
-  LogController.updateLog
-);
-
-router.delete("/:id", LogController.deleteLog);
-
 export default router;
